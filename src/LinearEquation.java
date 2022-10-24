@@ -18,13 +18,13 @@ public class LinearEquation {
     /* Calculates and returns distance between (x1, y1) and (x2, y2), rounded to
        the nearest hundredth */
     public double distance() {
-        return Math.round(Math.abs(x1 - y1)) + Math.round(Math.abs(x2 - y2));
+        return Math.sqrt(Math.pow(Math.abs(x2 - x1), 2) + Math.pow(Math.abs(y2 - y1), 2));
     }
 
     /* Calculates and returns the y-intercept of the line between (x1, y1) and
    (x2, y2), rounded to the nearest hundredth */
     public double yIntercept(){
-        return y1 = ((x2 - x1)/(y2 - y1)) * x1
+        return y1 = ((x2 - x1)/(y2 - y1)) * x1;
     }
 
 }
