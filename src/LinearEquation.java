@@ -15,20 +15,10 @@ public class LinearEquation {
         this.y2 = y2;
     }
 
-     /* "Helper" method for use elsewhere in your methods; returns the value toRound rounded
-        to the nearest hundredth
-
-        HINT:  the Math.round method can help with this!
-     */
-
-    public double roundedToHundredth(double toRound){
-        return Math.round(toRound * 100) / 100;
-    }
-
     /* Calculates and returns distance between (x1, y1) and (x2, y2), rounded to
-       the nearest hundredth */
+           the nearest hundredth */
     public double distance() {
-        return roundedToHundredth(Math.sqrt(Math.pow(Math.abs(x2 - x1), 2) + Math.pow(Math.abs(y2 - y1), 2))) * 100 / 100.0;
+        return roundedToHundredth(Math.sqrt(Math.pow(Math.abs(x2 - x1), 2) + Math.pow(Math.abs(y2 - y1), 2)));
     }
 
     /* Calculates and returns the y-intercept of the line between (x1, y1) and
@@ -38,10 +28,22 @@ public class LinearEquation {
     }
 
     /* Calculates and returns the slope of the line between (x1, y1) and
-  (x2, y2), rounded to the nearest hundredth */
+      (x2, y2), rounded to the nearest hundredth */
     public double slope() {
         return roundedToHundredth((double) (y2 - y1) / (double) (x2 - x1));
     }
+    /* "Helper" method for use elsewhere in your methods; returns the value toRound rounded
+        to the nearest hundredth
+
+        HINT:  the Math.round method can help with this!
+     */
+
+    public double roundedToHundredth(double toRound){
+        return Math.round(toRound * 100) / 100;
+    }
+
+
+
 
     /* Returns a String that represents the linear equation of the line through points
    (x1, y1) and (x2, y2) in slope-intercept (y = mx + b) form, e.g. "y = 3x + 1.5".
@@ -68,6 +70,12 @@ public class LinearEquation {
            subtraction!
  */
     public String equation() {
+        int x = 0;
+        int y = 0;
+        if(x2 - x1 < 0){
+           x = -1 * (x2 - x1);
+           y = -1 * (y2 - y1);
+        }
         if (slope() == -1) {
             if (yIntercept() == 0) {
                 return "y = -x";
